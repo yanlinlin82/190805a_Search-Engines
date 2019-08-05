@@ -1,0 +1,17 @@
+engine	query	count
+Baidu	Baidu	100000000
+Baidu	Bing	36100000
+Baidu	Google	45900000
+Baidu	Yahoo	34600000
+Bing	Baidu	35000000
+Bing	Bing	27900000
+Bing	Google	131000000
+Bing	Yahoo	36700000
+Google	Baidu	276000000
+Google	Bing	994000000
+Google	Google	18300000000
+Google	Yahoo	6270000000
+Yahoo	Baidu	81100000
+Yahoo	Bing	63400000
+Yahoo	Google	283000000
+Yahoo	Yahoo	79100000
