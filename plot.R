@@ -4,11 +4,15 @@ a <- read_tsv("data.txt", col_types = cols())
 
 if (!file.exists("plot.png")) {
   g <- a %>%
-    mutate(value = order(count)) %>%
-    ggplot(aes(x = engine, y = query, fill = value)) +
+    arrange(desc(count)) %>%
+    mutate(rank = row_number(),
+           text = count %>%
+             formatC(digits = 20, big.mark = ",") %>%
+             gsub(" ", "", .)) %>%
+    ggplot(aes(x = engine, y = query, fill = rank)) +
     geom_tile() +
-    geom_text(aes(label = gsub(" ", "", formatC(count, digits = 20, big.mark = ","))), hjust = .5) +
-    scale_fill_gradient(low = "white", high = "red") +
+    geom_text(aes(label = text)) +
+    scale_fill_gradient(low = "red", high = "white") +
     guides(fill = FALSE) +
     labs(x = "Search Engine", y = "Query Keyword") +
     ggtitle("How many records can be found between search engines?")
